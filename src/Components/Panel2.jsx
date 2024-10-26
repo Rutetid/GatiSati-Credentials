@@ -1,32 +1,35 @@
 import React from "react";
+import { useFormik } from "formik";
 
-const Login = () => {
+const Panel2 = () => {
+	const formik = useFormik({
+		initialValues: {
+			name: "",
+			department: "",
+			designation: "",
+			email: "",
+			mobile: "",
+			problem: "",
+		},
+		onSubmit: (values) => {
+			const data = { ...values};
+            
+            console.log(data);
+		},
+	});
 	return (
-		<div className="flex items-center">
-			<div className="bg-blue-600 min-h-screen w-4/12">
-				<div className="text-2xl text-white pt-10 pl-12">STARTGLOBAL</div>
-				<div className="text-5xl font-semibold text-white font-poppins pl-12 pt-16 leading-snug">
-					Let's setup <br />
-					your Operating <br />
-					Agreement
-				</div>
-				<div className="text-white/80 text-md pl-12 pt-6">
-					{" "}
-					All in one solution to for your business in the state. <br /> Form a
-					new company from scratch or onboard your <br /> existing US company.
-				</div>
-				<div className="pl-12 pt-16 w-100 rounded-">
-					<img src="review.png" alt="" />
-				</div>
-			</div>
-			<div className="min-h-screen w-3/5 bg-white pt-20  pl-28">
-				<div className="font-semibold text-3xl">Let's get started</div>
-				<div className="text-black/80">
+		<div>
+			<div className="font-semibold text-3xl">Let's get started</div>
+			<div className="text-black/80">
+				<form onSubmit={formik.handleSubmit}>
 					<div className="pt-12">
 						<div className="font-md pb-2">Name of Officer</div>
 						<input
 							type="text"
 							className="border-2 border-gray-200 w-96 h-10 rounded-md px-2"
+							onChange={formik.handleChange}
+							value={formik.values.name}
+							name="name"
 						/>
 					</div>
 
@@ -35,6 +38,9 @@ const Login = () => {
 						<input
 							type="text"
 							className="border-2 border-gray-200 w-96 h-10 rounded-md px-2"
+							onChange={formik.handleChange}
+							value={formik.values.department}
+							name="department"
 						/>
 					</div>
 
@@ -43,6 +49,9 @@ const Login = () => {
 						<input
 							type="text"
 							className="border-2 border-gray-200 w-96 h-10 rounded-md px-2"
+							onChange={formik.handleChange}
+							value={formik.values.designation}
+							name="designation"
 						/>
 					</div>
 
@@ -51,6 +60,9 @@ const Login = () => {
 						<input
 							type="text"
 							className="border-2 border-gray-200 w-96 h-10 rounded-md px-2"
+							onChange={formik.handleChange}
+							value={formik.values.email}
+							name="email"
 						/>
 					</div>
 
@@ -59,6 +71,9 @@ const Login = () => {
 						<input
 							type="text"
 							className="border-2 border-gray-200 w-96 h-10 rounded-md px-2"
+							onChange={formik.handleChange}
+							value={formik.values.mobile}
+							name="mobile"
 						/>
 					</div>
 
@@ -67,14 +82,23 @@ const Login = () => {
 						<input
 							type="text"
 							className="border-2 border-gray-200 w-96 h-10 rounded-md px-2"
+							onChange={formik.handleChange}
+							value={formik.values.problem}
+							name="problem"
 						/>
 					</div>
 
-					<div className="bg-blue-600 w-96 h-10 rounded-md flex justify-center items-center font-poppins font-md text-white mt-4"> GET STARTED</div>
-				</div>
+					<button
+						type="submit"
+						className="bg-blue-600 w-96 h-10 rounded-md flex justify-center items-center font-poppins font-md text-white mt-4"
+					>
+						{" "}
+						Submit
+					</button>
+				</form>
 			</div>
 		</div>
 	);
 };
 
-export default Login;
+export default Panel2;

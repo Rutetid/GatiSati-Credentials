@@ -1,9 +1,9 @@
 import React from "react";
-import Login from "./Components/Login";
+import UserForm1 from "./Components/UserForm1";
 const App = () => {
 	return (
 		<div className="">
-			<Login />
+			<UserForm1 />
 		</div>
 	);
 };
